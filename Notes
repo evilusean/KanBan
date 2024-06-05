@@ -7,4 +7,7 @@ npm i #install dependencies
 npm install @dnd-kit/core @dnd-kit/sortable #will install drag and drop dependanSeans
 next we are going to add tailwindCSS
 npm install -D tailwindcss postcss autoprefixer #will install tailwindCSS
-npx tailwindcss init -p #will initialize tailwindCSS
+npx tailwindcss init -p #will initialize tailwindCSS, create 2 config files
+Next we will need to replace the tailwindcss 'tailwind.config.js' file with the following as per below:
+https://tailwindcss.com/docs/installation
+content: ["./index.html", "./src/**/*.{html,js,ts,jsx,tsx}"], #will enable tailwind on JS6, TS6, and JS
