@@ -1,1 +1,4 @@
-
+Will be able to add columns, named, add tasks, click and drag move tasks between columns
+delete tasks, edit tasks, sort columns,
+React Typescript, Tailwind CSS, and DND kit(drag and drop kit)
+'npm create vite' #Will create a vite project name=KanBan, React, Typescript + SWC,
