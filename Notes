@@ -6,3 +6,5 @@ React Typescript, Tailwind CSS, and DND kit(drag and drop kit)
 npm i #install dependencies
 npm install @dnd-kit/core @dnd-kit/sortable #will install drag and drop dependanSeans
 next we are going to add tailwindCSS
+npm install -D tailwindcss postcss autoprefixer #will install tailwindCSS
+npx tailwindcss init -p #will initialize tailwindCSS
