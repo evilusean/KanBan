@@ -1,8 +1,10 @@
 import React from "react";
 import PlusIcon from "../icons/PlusIcon";
+import { useState } from "react";
+import { Column } from "../types";
 
 function KanBanBoard() {
-  const [columns, setColumns] = useState([]);
+  const [columns, setColumns] = useState<Column[]>([]);
   return (
     <div
       className="
@@ -42,7 +44,16 @@ function KanBanBoard() {
       </div>
     </div>
   );
-  function createNewColumn() {}
+  function createNewColumn() {
+    const columnToAdd: Column = {
+      id: generateId(),
+      title: `Column ${columns.length + 1}`,
+    };
+    setColumns([...columns, columnToAdd]);
+  }
+}
+function generateId() {
+  return Math.floor(Math.random() * 10001);
 }
 
 export default KanBanBoard;
