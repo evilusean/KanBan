@@ -1,6 +1,8 @@
 import React from "react";
+import PlusIcon from "../icons/PlusIcon";
 
 function KanBanBoard() {
+  const [columns, setColumns] = useState([]);
   return (
     <div
       className="
@@ -16,6 +18,9 @@ function KanBanBoard() {
     >
       <div className="m-auto">
         <button
+          onClick={() => {
+            createNewColumn();
+          }}
           className="
       h-[60px] 
       w-[350px] 
@@ -27,13 +32,17 @@ function KanBanBoard() {
       border-columnBackgroundColor 
       p-4 ring-rose-500 
       hover:ring-2
+      flex
+      gap-2
       "
         >
+          <PlusIcon />
           Add Column
         </button>
       </div>
     </div>
   );
+  function createNewColumn() {}
 }
 
 export default KanBanBoard;
