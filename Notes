@@ -17,3 +17,7 @@ npm install tailwind-merge #will install tailwind-merge
 
 npm run dev #starts development server
 'App.css' applying basic styling to project
+created 'components' folder and 'KanBanBoard.tsx' file - added to 'App.tsx'
+added tailwind stylings to new button 'Add column'
+Added a new SVG icon from:
+https://heroicons.com/
