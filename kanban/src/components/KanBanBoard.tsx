@@ -18,7 +18,12 @@ function KanBanBoard() {
 
     "
     >
-      <div className="m-auto">
+      <div className="m-auto flex gap-4">
+        <div className="flex gap-4">
+          {columns.map((col) => (
+            <div>{col.title}</div>
+          ))}
+        </div>
         <button
           onClick={() => {
             createNewColumn();
