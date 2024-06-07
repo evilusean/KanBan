@@ -16,3 +16,4 @@ Next we will purge the 'index.css'
 npm install tailwind-merge #will install tailwind-merge
 
 npm run dev #starts development server
+'App.css' applying basic styling to project
