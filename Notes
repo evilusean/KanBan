@@ -13,3 +13,6 @@ https://tailwindcss.com/docs/installation
 content: ["./index.html", "./src/**/*.{html,js,ts,jsx,tsx}"], #will enable tailwind on JS6, TS6, TS, and JS
 Next we will create a theme, with colours. in the 'tailwind.config.js'
 Next we will purge the 'index.css'
+npm install tailwind-merge #will install tailwind-merge
+
+npm run dev #starts development server
