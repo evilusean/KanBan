@@ -21,14 +21,33 @@ function ColumnContainer(props: Props) {
       bg-mainBackgroundColor
       text-md
       h-[60px]
+      cursor-grab
       rounded-md
       rounded-b-none
       p-3
       font-bold
       border-columnBackgroundColor
-      border-4"
+      border-4
+      "
       >
-        {column.title}
+        <div className="flex gap-2">
+          <div
+            className="
+        flex
+        justify-center
+        items-center
+        bg-columnBackgroundColor
+        px-2
+        py-1
+        text-sm
+        rounded-full
+        "
+          >
+            0
+          </div>
+          {column.title}
+        </div>
+        <button>Delete</button>
       </div>
       <div className="flex flex-grow">Content</div>
       <div>Footer</div>

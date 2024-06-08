@@ -2,6 +2,7 @@ import React from "react";
 import PlusIcon from "../icons/PlusIcon";
 import { useState } from "react";
 import { Column } from "../types";
+import ColumnContainer from "./ColumnContainer";
 
 function KanBanBoard() {
   const [columns, setColumns] = useState<Column[]>([]);
