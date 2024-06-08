@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useMemo } from "react";
 import PlusIcon from "../icons/PlusIcon";
 import { useState } from "react";
-import { Column } from "../types";
+import { Column, Id } from "../types";
 import ColumnContainer from "./ColumnContainer";
+import { DndContext } from "@dnd-kit/core";
+import { SortableContext } from "@dnd-kit/sortable";
 
 function KanBanBoard() {
   const [columns, setColumns] = useState<Column[]>([]);
+  const columnsId = useMemo(() => columns.map((col) => col.id), [columns]);
   return (
     <div
       className="
@@ -19,17 +22,25 @@ function KanBanBoard() {
 
     "
     >
-      <div className="m-auto flex gap-4">
-        <div className="flex gap-4">
-          {columns.map((col) => (
-            <ColumnContainer column={col} deleteColumn={deleteColumn} />
-          ))}
-        </div>
-        <button
-          onClick={() => {
-            createNewColumn();
-          }}
-          className="
+      <DndContext>
+        <div className="m-auto flex gap-4">
+          <div className="flex gap-4">
+            <SortableContext items={columnsId}>
+              {columns.map((col) => (
+                <ColumnContainer
+                  key={col.id}
+                  column={col}
+                  deleteColumn={deleteColumn}
+                />
+              ))}
+            </SortableContext>
+          </div>
+
+          <button
+            onClick={() => {
+              createNewColumn();
+            }}
+            className="
       h-[60px] 
       w-[350px] 
       min-w-[350px] 
@@ -43,11 +54,12 @@ function KanBanBoard() {
       flex
       gap-2
       "
-        >
-          <PlusIcon />
-          Add Column
-        </button>
-      </div>
+          >
+            <PlusIcon />
+            Add Column
+          </button>
+        </div>
+      </DndContext>
     </div>
   );
   function createNewColumn() {
