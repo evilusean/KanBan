@@ -8,6 +8,9 @@ import {
   DragEndEvent,
   DragOverlay,
   DragStartEvent,
+  PointerSensor,
+  useSensor,
+  useSensors,
 } from "@dnd-kit/core";
 import { SortableContext, arrayMove } from "@dnd-kit/sortable";
 import { createPortal } from "react-dom";
@@ -17,6 +20,14 @@ function KanBanBoard() {
   const columnsId = useMemo(() => columns.map((col) => col.id), [columns]);
 
   const [activeColumn, setActiveColumn] = useState<Column | null>(null);
+
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        distance: 300,
+      },
+    })
+  );
 
   return (
     <div
@@ -28,10 +39,13 @@ function KanBanBoard() {
     overflow-x-auto
     overflow-y-hidden
     px-[40px]
-
     "
     >
-      <DndContext onDragStart={onDragStart} onDragEnd={onDragEnd}>
+      <DndContext
+        sensors={sensors}
+        onDragStart={onDragStart}
+        onDragEnd={onDragEnd}
+      >
         <div className="m-auto flex gap-4">
           <div className="flex gap-4">
             <SortableContext items={columnsId}>
@@ -58,7 +72,8 @@ function KanBanBoard() {
       bg-mainBackgroundColor 
       border-2 
       border-columnBackgroundColor 
-      p-4 ring-rose-500 
+      p-4 
+      ring-rose-500 
       hover:ring-2
       flex
       gap-2
