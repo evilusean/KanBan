@@ -22,7 +22,7 @@ function KanBanBoard() {
       <div className="m-auto flex gap-4">
         <div className="flex gap-4">
           {columns.map((col) => (
-            <ColumnContainer column={col} />
+            <ColumnContainer column={col} deleteColumn={deleteColumn} />
           ))}
         </div>
         <button
@@ -56,6 +56,11 @@ function KanBanBoard() {
       title: `Column ${columns.length + 1}`,
     };
     setColumns([...columns, columnToAdd]);
+  }
+
+  function deleteColumn(id: Id) {
+    const filteredColumns = columns.filter((col) => col.id !== id);
+    setColumns(filteredColumns);
   }
 }
 function generateId() {
