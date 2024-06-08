@@ -16,7 +16,20 @@ function ColumnContainer(props: Props) {
   flex
   flex-col"
     >
-      {column.title}
+      <div
+        className="
+      bg-mainBackgroundColor
+      text-md
+      h-[60px]
+      rounded-md
+      rounded-b-none
+      p-3
+      font-bold
+      border-columnBackgroundColor
+      border-4"
+      >
+        {column.title}
+      </div>
       <div className="flex flex-grow">Content</div>
       <div>Footer</div>
     </div>
