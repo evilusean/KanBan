@@ -1,3 +1,4 @@
+import TrashIcon from "../icons/TrashIcon";
 import { Column } from "../types";
 
 interface Props {
@@ -28,6 +29,9 @@ function ColumnContainer(props: Props) {
       font-bold
       border-columnBackgroundColor
       border-4
+      flex
+      items-center
+      justify-between
       "
       >
         <div className="flex gap-2">
@@ -47,7 +51,18 @@ function ColumnContainer(props: Props) {
           </div>
           {column.title}
         </div>
-        <button>Delete</button>
+        <button
+          className="
+        stroke-gray-500
+        hover: stroke-white
+        hover: bg-columnBackgroundColor
+        rounded
+        px-1
+        py-2
+        "
+        >
+          <TrashIcon />
+        </button>
       </div>
       <div className="flex flex-grow">Content</div>
       <div>Footer</div>
