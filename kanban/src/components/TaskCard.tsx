@@ -9,6 +9,7 @@ interface Props {
 
 function TaskCard({ task, deleteTask }: Props) {
   const [mouseIsOver, setMouseIsOver] = useState(false);
+  const [editMode, setEditMode] = useState(false);
 
   return (
     <div
