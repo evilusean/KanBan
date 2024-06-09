@@ -104,6 +104,7 @@ function KanBanBoard() {
       id: generateId(),
       title: `Column ${columns.length + 1}`,
     };
+
     setColumns([...columns, columnToAdd]);
   }
 
