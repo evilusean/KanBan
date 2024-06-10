@@ -59,6 +59,7 @@ function KanBanBoard() {
                   updateColumn={updateColumn}
                   createTask={createTask}
                   deleteTask={deleteTask}
+                  updateTask={updateTask}
                   tasks={tasks.filter((task) => task.columnId === col.id)}
                 />
               ))}
@@ -122,6 +123,14 @@ function KanBanBoard() {
 
   function deleteTask(id: Id) {
     const newTasks = tasks.filter((task) => task.id !== id);
+    setTasks(newTasks);
+  }
+
+  function updateTask(id: Id, content: string) {
+    const newTasks = tasks.map((task) => {
+      if (task.id !== id) return tasks;
+      return { ...tasks, content };
+    });
     setTasks(newTasks);
   }
 
