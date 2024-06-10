@@ -42,7 +42,7 @@ function TaskCard({ task, deleteTask, updateTask }: Props) {
           placeholder="Task content here"
           onBlur={toggleEditMode}
           onKeyDown={(e) => {
-            if (e.key === "Enter") toggleEditMode();
+            if (e.key === "Enter" && e.shiftKey) toggleEditMode();
           }}
           onChange={(e) => updateTask(task.id, e.target.value)}
         ></textarea>
@@ -65,7 +65,8 @@ function TaskCard({ task, deleteTask, updateTask }: Props) {
     hover:ring-inset 
     hover:ring-rose-500 
     cursor-grab
-    relative"
+    relative
+    task"
       onMouseEnter={() => {
         setMouseIsOver(true);
       }}
@@ -73,7 +74,9 @@ function TaskCard({ task, deleteTask, updateTask }: Props) {
         setMouseIsOver(false);
       }}
     >
-      {task.content}
+      <p className="my-auto h-[90%] w-full overflow-y-auto overflow-x-auto whitespace-pre-wrap">
+        {task.content}
+      </p>
       {mouseIsOver && (
         <button
           onClick={() => {
