@@ -17,11 +17,95 @@ import { SortableContext, arrayMove } from "@dnd-kit/sortable";
 import { createPortal } from "react-dom";
 import TaskCard from "./TaskCard";
 
+const defaultCols: Column[] = [
+  {
+    id: "todo",
+    title: "Todo",
+  },
+  {
+    id: "doing",
+    title: "Work in progress",
+  },
+  {
+    id: "done",
+    title: "Done",
+  },
+];
+
+const defaultTasks: Task[] = [
+  {
+    id: "1",
+    columnId: "todo",
+    content: "Hire Junior Developer",
+  },
+  {
+    id: "2",
+    columnId: "todo",
+    content:
+      "Talk to management",
+  },
+  {
+    id: "3",
+    columnId: "doing",
+    content: "SecuritizeASean",
+  },
+  {
+    id: "4",
+    columnId: "doing",
+    content: "OptimizeASeans",
+  },
+  {
+    id: "5",
+    columnId: "done",
+    content: "Create documentASean",
+  },
+  {
+    id: "6",
+    columnId: "done",
+    content: "Interview Junior Developer",
+  },
+  {
+    id: "7",
+    columnId: "done",
+    content: "Review Portfolio",
+  },
+  {
+    id: "8",
+    columnId: "todo",
+    content: "Review NotificASeans",
+  },
+  {
+    id: "9",
+    columnId: "todo",
+    content: "Deploy on Vercel",
+  },
+  {
+    id: "10",
+    columnId: "todo",
+    content: "Get COE approval",
+  },
+  {
+    id: "11",
+    columnId: "todo",
+    content: "RelocASean AllOkSean",
+  },
+  {
+    id: "12",
+    columnId: "doing",
+    content: "Showing AppreciateSean",
+  },
+  {
+    id: "13",
+    columnId: "doing",
+    content: "Talking to Karen in HR",
+  },
+];
+
 function KanBanBoard() {
-  const [columns, setColumns] = useState<Column[]>([]);
+  const [columns, setColumns] = useState<Column[]>(defaultCols);
   const columnsId = useMemo(() => columns.map((col) => col.id), [columns]);
 
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useState<Task[]>(defaultTasks);
 
   const [activeColumn, setActiveColumn] = useState<Column | null>(null);
 
